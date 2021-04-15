@@ -5,7 +5,7 @@ using UnityEngine;
 public class OnGroundDefault : MonoBehaviour
 {
     public CharacterController characterController;
-    public ParticleSystem particleSystem;
+    public new ParticleSystem particleSystem;
 
     // 이전 상태를 기록하기 위한 변수
     public bool oldFlag; 
@@ -28,6 +28,6 @@ public class OnGroundDefault : MonoBehaviour
 
         oldFlag = currentFlag;
 
-        // 뭘 하는지 알기 힘들다.
+        // 뭘 하는지 알기 힘들다..
     }
 }

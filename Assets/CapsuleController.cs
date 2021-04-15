@@ -21,16 +21,29 @@ public class CapsuleController : MonoBehaviour
     {
         //Debug.LogError(characterController.isGrounded);
 
-        if (characterController.isGrounded)
-            vector3 = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        // 이걸 사용하면 계속해서 떠있을수 있다.
+        //if (characterController.isGrounded)
 
-        if (GetComponent<OnGroundUniRX>().isGournd) // 5프레임마다 마지막 변화를 값으로 가진다.
+        if (GetComponent<OnGroundUniRX>().isActiveAndEnabled && GetComponent<OnGroundUniRX>().isGournd) // 5프레임마다 마지막 변화를 값으로 가진다.
         {
+            // 계속땅에 붙어있도록 vector3.y 유지 (중력)
+            vector3 = new Vector3(Input.GetAxis("Horizontal"), -1, Input.GetAxis("Vertical"));
+
+            if (Input.GetKey(KeyCode.Space))
+                vector3.y = jumpForce;
+        }
+        else if (GetComponent<OnGroundDefault>().isActiveAndEnabled && characterController.isGrounded)
+        {
+            // 계속땅에 붙어있도록 vector3.y 유지 (중력)
+            vector3 = new Vector3(Input.GetAxis("Horizontal"), -1, Input.GetAxis("Vertical"));
+
             if (Input.GetKey(KeyCode.Space))
                 vector3.y = jumpForce;
         }
 
-        vector3.y -= gravity;
+        // 떠있으면
+        vector3.y -= gravity; // 계속해서 무거워진다.
+
         characterController.Move(vector3 * Time.deltaTime * moveSpeed);
     }
 }
