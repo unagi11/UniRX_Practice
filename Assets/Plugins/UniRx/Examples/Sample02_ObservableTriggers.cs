@@ -12,7 +12,7 @@ namespace UniRx.Examples
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
             // Add ObservableXxxTrigger for handle MonoBehaviour's event as Observable
-            cube.AddComponent<ObservableUpdateTrigger>()
+            cube//.AddComponent<ObservableUpdateTrigger>()
                 .UpdateAsObservable()
                 .SampleFrame(30)
                 .Subscribe(x => Debug.Log("cube"), () => Debug.Log("destroy"));
