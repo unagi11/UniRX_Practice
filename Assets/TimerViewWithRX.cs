@@ -17,10 +17,8 @@ public class TimerViewWithRX : MonoBehaviour
         timeCounterWithRX
             .OnTimeChanged
             .Subscribe(asdf =>
-        {
-            TextMeshProUGUI.text = asdf.ToString();
-        });
-
-
+            {
+                TextMeshProUGUI.text = asdf.ToString();
+            });
     }
 }

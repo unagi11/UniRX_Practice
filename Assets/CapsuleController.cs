@@ -32,6 +32,7 @@ public class CapsuleController : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
                 vector3.y = jumpForce;
         }
+
         else if (GetComponent<OnGroundDefault>().isActiveAndEnabled && characterController.isGrounded)
         {
             // 계속땅에 붙어있도록 vector3.y 유지 (중력)

@@ -14,7 +14,6 @@ public class OnGroundDefault : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-
         oldFlag = characterController.isGrounded;
     }
 

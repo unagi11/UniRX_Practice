@@ -12,7 +12,6 @@ public class TimeCounterWithEvent : MonoBehaviour
     [SerializeField]
     public event TimerEventHandler OnTimeChanged;
 
-
     private void Start()
     {
         StartCoroutine(TimeCoroutine());
